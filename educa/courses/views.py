@@ -13,6 +13,7 @@ from .forms import ModuleFormSet
 from .models import Course, Module, Content, Subject
 from django.core.cache import cache
 
+
 class OwnerMixin:
     def get_queryset(self):
         qs = super().get_queryset()

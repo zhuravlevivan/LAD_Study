@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'students.apps.StudentsConfig',
+
     'embed_video',
+    'redisboard',
     'debug_toolbar'
 
 ]
@@ -128,5 +131,12 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': 'redis://localhost:6379'
+    }
+}
 
 INTERNAL_IPS = ['127.0.0.1']
